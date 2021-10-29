@@ -1,0 +1,13 @@
+{
+    "keyboard_name": "2keys",
+    "url": "",
+    "maintainer": "tpywao",
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label": "A", "x": 0, "y": 0},
+                {"label": "1", "x": 1, "y": 0}
+            ]
+        }
+    }
+}
