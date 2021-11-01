@@ -25,37 +25,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID   0x616f
 #define DEVICE_VER   0x0001
 #define MANUFACTURER tpywao
-#define PRODUCT      feather
-
-/* key matrix size */
-#define MATRIX_ROWS 4*2  // primary: 4 rows, secondary: 4 rows
-#define MATRIX_COLS 6
-
-/*
- * Keyboard Matrix Assignments
- *
- * Change this to how you wired your keyboard
- * COLS: AVR pins used for columns, left to right
- * ROWS: AVR pins used for rows, top to bottom
- * DIODE_DIRECTION: COL2ROW = COL = Anode (+), ROW = Cathode (-, marked on diode)
- *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
- *
- */
-// A~F, 1~4
-#define MATRIX_ROW_PINS { F6, F7, B1, B3 }
-#define MATRIX_COL_PINS { D1, D0, D4, C6, D7, E6 }
-#define MATRIX_ROW_PINS_RIGHT { F6, F7, B1, B3 }
-#define MATRIX_COL_PINS_RIGHT { E6, D7, C6, D4, D0, D1 }
-// #define UNUSED_PINS
+#define PRODUCT      exam
 
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
-/*
- * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
- */
-#define SOFT_SERIAL_PIN D2  // or D1, D2, D3, E6
-// #define USE_I2C
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
@@ -70,5 +44,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_FUNCTION
 
 /* Bootmagic Lite key configuration */
-// #define BOOTMAGIC_LITE_ROW 0
-// #define BOOTMAGIC_LITE_COLUMN 0
+//#define BOOTMAGIC_LITE_ROW 0
+//#define BOOTMAGIC_LITE_COLUMN 0
