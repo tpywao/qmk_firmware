@@ -17,51 +17,47 @@
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
-    _QWERTY,
-    _DVORAK,
-    _SIGN
+    _QWERTY
 };
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
-    QWERTY = SAFE_RANGE,
-    DVORAK
+    QMKBEST = SAFE_RANGE,
+    QMKURL
 };
 
-#define SIGN TG(_SIGN)
-#define G_E GUI_T(KC_ESC)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Qwerty Layer
-     *  Primary Side (USB Cable Connected Side)
-     *  ,--------------------------------------
-     *  |    `    Q    W    E       R   T
-     *  |  Tab    A    S    D       F   G
-     *  |  Sft    Z    X    C       V   B
-     *  |                SIGN GUI/Esc Ctl
-     *  `--------------------------------------
-     *  Secondary Side (USB Cable Not Connected Side)
-     *  ,----------------------------
-     *  |   Y   U   I    O    P    \
-     *  |   H   J   K    L    ;    '
-     *  |   N   M   ,    .    /  Sft
-     *  | Alt Spc Ent
-     *  `----------------------------
-     */
+    /* Base */
     [_QWERTY] = LAYOUT(
     // ,-----------------------------------------------------.
-          KC_GRV,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
+          KC_GRV,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,
     // |--------+--------+--------+--------+--------+--------|
+          KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,
+    // |--------+--------+--------+--------+--------+--------|
+         KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,
+    // |--------+--------+--------+--------+--------+--------+--------+--------|
+                                                         KC_Y,    KC_U,    KC_I
+                                                 // `--------------------------'
     ),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QWERTY:
+        case QMKBEST:
             if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
+                // when keycode QMKBEST is pressed
+                SEND_STRING("QMK is the best thing ever!");
+            } else {
+                // when keycode QMKBEST is released
             }
-            return false;
+            break;
+        case QMKURL:
+            if (record->event.pressed) {
+                // when keycode QMKURL is pressed
+                SEND_STRING("https://qmk.fm/\n");
+            } else {
+                // when keycode QMKURL is released
+            }
             break;
     }
     return true;
