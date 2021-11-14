@@ -20,9 +20,8 @@ enum layer_names {
     // keymap
     _QWERTY,
     _DVORAK,
-    _COLEMAK,
     _WORKMAN,
-    _NORMAN,
+    _EUCALYN,
     // another
     _LOWER,
     _RAISE,
@@ -36,10 +35,12 @@ enum layer_names {
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
     QWERTY = SAFE_RANGE,
+    // https://en.wikipedia.org/wiki/Dvorak_keyboard_layout
     DVORAK,
-    COLEMAK,
+    // https://github.com/workman-layout/Workman
     WORKMAN,
-    NORMAN,
+    // https://eucalyn.hatenadiary.jp/entry/about-eucalyn-layout
+    EUCALYN
 };
 
 #define LED_TX B0
@@ -55,7 +56,7 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
         // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
-              KC_GRV,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
+              KC_GRV,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
               KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                           KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
@@ -67,9 +68,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_DVORAK] = LAYOUT(
         // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
-             _______, KC_QUOT, KC_COMM,  KC_DOT,    KC_P,   KC_Y,                                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L, _______,
+             _______, KC_QUOT, KC_COMM,  KC_DOT,    KC_P,   KC_Y,                                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L, KC_SLSH,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
-             _______,    KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                                           KC_D,    KC_H,    KC_T,    KC_N,    KC_S, _______,
+             _______,    KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                                           KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_MINS,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
              _______, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,                                           KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, _______,
         // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|
@@ -79,11 +80,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_WORKMAN] = LAYOUT(
         // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
-             _______,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                                           KC_J,    KC_F,    KC_U,    KC_P, KC_SCLN, _______,
+             _______,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                                           KC_J,    KC_F,    KC_U,    KC_P, KC_SCLN, KC_MINS,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
-             _______,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                                           KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, _______,
+             _______,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                                           KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
              _______,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                                           KC_K,    KC_L, KC_COMM,  KC_DOT, KC_SLSH, _______,
+        // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|
+                                                          _______, _______, _______,    _______, _______, _______
+                                                     // `--------------------------'  `--------------------------'
+    ),
+
+    [_EUCALYN] = LAYOUT(
+        // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
+             _______,    KC_Q,    KC_W, KC_COMM,  KC_DOT, KC_SCLN,                                           KC_M,    KC_R,    KC_D,    KC_Y,    KC_P, KC_MINS,
+        // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
+             _______,    KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                                           KC_G,    KC_T,    KC_K,    KC_S,    KC_N, KC_QUOT,
+        // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
+             _______,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,                                           KC_B,    KC_H,    KC_J,    KC_L, KC_SLSH, _______,
         // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|
                                                           _______, _______, _______,    _______, _______, _______
                                                      // `--------------------------'  `--------------------------'
@@ -117,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
              _______,   RESET, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
-             _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX,  QWERTY,  DVORAK, WORKMAN, XXXXXXX, XXXXXXX,
+             _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX,  QWERTY, EUCALYN,  DVORAK, WORKMAN, XXXXXXX,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
         // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|
@@ -151,26 +164,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void keyboard_pre_init_user(void) {
-  // Call the keyboard pre init code.
+    // Call the keyboard pre init code.
 
-  // Set our LED pins as output
-  setPinOutput(LED_TX);
-  setPinOutput(LED_RX);
+    // Set our LED pins as output
+    setPinOutput(LED_RX);
+    setPinOutput(LED_TX);
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    if (layer_state_is(_LOWER)) {
+    layer_state_t _state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    if (IS_LAYER_ON_STATE(_state, _LOWER)) {
         writePinLow(LED_RX);
     } else {
         writePinHigh(LED_RX);
     }
 
-    if (layer_state_is(_RAISE)) {
+    if (IS_LAYER_ON_STATE(_state, _RAISE)) {
         writePinLow(LED_TX);
     } else {
         writePinHigh(LED_TX);
     }
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return _state;
 }
 
 void set_default_layer_wrapper(uint8_t default_layer) {
@@ -194,6 +208,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case WORKMAN:
             if (record->event.pressed) {
                 set_default_layer_wrapper(_WORKMAN);
+            }
+            return false;
+            break;
+        case EUCALYN:
+            if (record->event.pressed) {
+                set_default_layer_wrapper(_EUCALYN);
             }
             return false;
             break;
