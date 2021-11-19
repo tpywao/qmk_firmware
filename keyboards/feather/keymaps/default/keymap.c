@@ -48,9 +48,9 @@ enum custom_keycodes {
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define LG_SPC GUI_T(KC_SPC)
+#define LG_SPC LGUI_T(KC_SPC)
 #define RC_SPC RCTL_T(KC_SPC)
-#define LC_ESC LCTL_T(KC_ESC)
+#define LA_ESC LALT_T(KC_ESC)
 #define RS_ESC RSFT_T(KC_ESC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
                LOWER,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                           KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,   RAISE,
         // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|
-                                                          KC_LALT,  LG_SPC,  LC_ESC,     RS_ESC,  RC_SPC,  KC_ENT
+                                                          KC_LSFT,  LG_SPC,  LA_ESC,     RS_ESC,  RC_SPC,  KC_ENT
                                                      // `--------------------------'  `--------------------------'
     ),
 
@@ -128,9 +128,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_ADJUST] = LAYOUT(
         // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
-             _______,   RESET, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+             _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                          KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, XXXXXXX,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
-             _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX,  QWERTY, EUCALYN,  DVORAK, WORKMAN, XXXXXXX,
+             _______,   RESET, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX,  QWERTY, EUCALYN,  DVORAK, WORKMAN, XXXXXXX,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
         // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|

@@ -47,13 +47,13 @@
                 {"label":"/", "x":13, "y":2.3},
                 {"label":"RAISE", "x":14, "y":2.3},
 
-                {"label":"Alt", "x":4, "y":3.7},
-                {"label":"GUI/Esc", "x":5, "y":3.7},
-                {"label":"SIGN", "x":6, "y":3.2, "h":1.5},
+                {"label":"Shift", "x":4, "y":3.7},
+                {"label":"GUI/Space", "x":5, "y":3.7},
+                {"label":"Alt/Esc", "x":6, "y":3.2, "h":1.5},
 
-                {"label":"Enter", "x":8, "y":3.2, "h":1.5},
-                {"label":"Space", "x":9, "y":3.7},
-                {"label":"Ctrl", "x":10, "y":3.7}
+                {"label":"Shift/Esc", "x":8, "y":3.2, "h":1.5},
+                {"label":"Ctrl/Space", "x":9, "y":3.7},
+                {"label":"Enter", "x":10, "y":3.7}
             ]
         }
     }
