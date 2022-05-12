@@ -22,4 +22,4 @@ AUDIO_ENABLE = no           # Audio output
 
 SPLIT_KEYBOARD = yes
 
-DEFAULT_FOLDER = feather/rev1
+DEFAULT_FOLDER = tpywao/wings42/rev1
