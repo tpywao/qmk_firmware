@@ -50,16 +50,17 @@ enum custom_keycodes {
 // for QWERTY
 #define LS_F LSFT_T(KC_F)
 #define RS_J RSFT_T(KC_J)
-#define LG_D LCTL_T(KC_D)
-#define RG_K RCTL_T(KC_K)
+#define LC_D LCTL_T(KC_D)
+
+#define RC_K RCTL_T(KC_K)
 #define LA_S LALT_T(KC_S)
 #define RA_L RALT_T(KC_L)
 
 // for OONISHI
 #define LS_O LSFT_T(KC_O)
 #define RS_T RSFT_T(KC_T)
-#define LG_A LGUI_T(KC_A)
-#define RG_N RGUI_T(KC_N)
+#define LC_A LCTL_T(KC_A)
+#define RC_N RCTL_T(KC_N)
 #define LA_I LALT_T(KC_I)
 #define RA_S RALT_T(KC_S)
 
@@ -69,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
               KC_GRV,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, MIN_PLS,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
-             KC_CAPS,    KC_A,    LA_S,    LG_D,    LS_F,    KC_G,                                           KC_H,    RS_J,    RG_K,    RA_L, KC_SCLN, KC_QUOT,
+             KC_CAPS,    KC_A,    LA_S,    LC_D,    LS_F,    KC_G,                                           KC_H,    RS_J,    RC_K,    RA_L, KC_SCLN, KC_QUOT,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
              KC_BSPC,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                           KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_EQL,
         // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|
@@ -80,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ,-----------------------------------------------------.                                      ,-----------------------------------------------------.
               KC_GRV,    KC_Q,    KC_L,    KC_U, KC_COMM,  KC_DOT,                                           KC_F,    KC_W,    KC_R,    KC_Y,    KC_P, KC_SLSH,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
-             XXXXXXX,    KC_E,    LA_I,    LG_A,    LS_O, KC_MINS,                                           KC_K,    RS_T,    RG_N,    RA_S,    KC_H, KC_QUOT,
+             XXXXXXX,    KC_E,    LA_I,    LC_A,    LS_O, KC_MINS,                                           KC_K,    RS_T,    RC_N,    RA_S,    KC_H, KC_QUOT,
         // |--------+--------+--------+--------+--------+--------|                                      |--------+--------+--------+--------+--------+--------|
              KC_BSPC,    KC_Z,    KC_X,    KC_C,    KC_V, KC_SCLN,                                           KC_G,    KC_D,    KC_M,    KC_J,    KC_B,  KC_EQL,
         // |--------+--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------+--------|
